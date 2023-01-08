@@ -1,14 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int *generateArray(int size) {
+int *generateArray(int size) { // return address of int
     int *arr = (int *)malloc(sizeof(int) * size); // arr[size]
 
     for (int i = 0; i < size; i++) {
         arr[i] = i + 1;
         // *(arr + i) = i + 1;
     }
-    return arr;
+    return &arr;
 }
 
 void printArr(int arr[], int size) {
@@ -22,6 +22,7 @@ int main() {
     const int SIZE = 10;
     int *arr = generateArray(SIZE);
     printArr(arr, SIZE);
+
     free(arr);
     printArr(arr, SIZE);
     // int arr[5] = {0, 1, 2, 3, 4};
